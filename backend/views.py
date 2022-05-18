@@ -1,6 +1,8 @@
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from rest_framework.views import APIView
+
 from .forms import UserForm
 
 # Create your views here.
@@ -8,8 +10,11 @@ def index(request):
     return render(request, 'index.html', {})
 
 
-def register(request):
-    if request.method == 'POST':
+class Register(APIView):
+    def get(self, request):
+        form = UserForm()
+        return render(request, 'register.html', {'form': form})
+    def post(self, request):
         form = UserForm(request.POST)
         if form.is_valid():
             user = form.save()
@@ -18,8 +23,6 @@ def register(request):
 
         return render(request, 'register.html', {'form': form})
 
-    form = UserForm()
-    return render(request, 'register.html', {'form': form})
 
 
 def user_login(request):
