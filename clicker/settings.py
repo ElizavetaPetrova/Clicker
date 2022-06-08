@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'frontend',
     'rest_framework',
     'api',
+    'bootstrap3'
 ]
 
 MIDDLEWARE = [
