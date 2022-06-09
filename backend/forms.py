@@ -16,7 +16,7 @@ class UserForm(forms.ModelForm):
         min_length=3,
         max_length=20,
         label='Пароль',
-        widget=forms.PasswordInput(attrs={'placeholder': 'Вводи пароль'}),
+        widget=forms.PasswordInput(attrs={'placeholder': 'Вводи пароль', 'class': 'some-class'}),
     )
     password_confirm = forms.CharField(
         min_length=3,

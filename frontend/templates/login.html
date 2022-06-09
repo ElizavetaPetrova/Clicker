@@ -22,29 +22,17 @@
                             <h2 class="text-uppercase text-center mb-5">АВТОРИЗАЦИЯ</h2>
 
                             <form action="{% url 'login' %}" method='POST'>
-                                {% csrf_token %}
+                               {% csrf_token %}
 
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="username">Имя пользователя </label>
-                                    <input class="form-control form-control-lg" id="username" type="text"
-                                           name="username" maxlength="100" required>
-                                </div>
+          <div><p>Имя пользователя: {{ form.username }}</p></div>
+          <div><p>Пароль: {{ form.password }}</p></div>
 
-                                <div class="form-outline mb-4">
-                                    <label сlass="form-label" for="password">Пароль </label>
-                                    <input class="form-control form-control-lg" id="password" type="password"
-                                           name="password" maxlength="100" required>
-                                    {% if invalid %}
-                                    <p>Введи нормальные данные</p>
-                                    {% endif %}
-                                </div>
+                                <div class="bottom"><input type="submit" class="btn">
+        <a href="{% url 'register' %}">Не зарегистрирован?</a></div>
 
-                                <div class="d-flex justify-content-center">
-                                    <input type="submit" class="btn btn-block btn-lg gradient-custom-4 text-body">
-                                </div>
-
-                                <p class="text-center text-muted mt-5 mb-0"><a href="{% url 'register' %}">Не
-                                    зарегистрирован?</a></p>
+        {% if invalid %}
+            <p>Введи нормальные данные </p>
+        {% endif %}
 
                             </form>
 
