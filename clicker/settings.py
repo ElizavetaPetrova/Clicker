@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'backend',
     'frontend',
     'rest_framework',
-    'api',
     'bootstrap3'
 ]
 
